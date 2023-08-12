@@ -9,6 +9,7 @@ import morgan from "morgan";
 import path from "path";
 import { fileURLToPath } from "url";
 import authRoutes from "./routes/auth.js";
+import userRoutes from "./routes/user.js";
 import { register } from "./controllers/auth.js";
 
 // CONFIGURATIONS
@@ -43,7 +44,7 @@ app.post("/auth/register".upload.single("picture"), register);
 
 // ROUTE
 app.use("/auth", authRoutes);
-app.use("/");
+app.use("/users", userRoutes);
 
 const upload = multer({ storage });
 
